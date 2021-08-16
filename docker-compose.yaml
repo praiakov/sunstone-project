@@ -1,0 +1,40 @@
+version: '2.2'
+
+services:
+  teste-postgres-compose:
+    image: postgres
+    container_name: postgres
+    environment:
+      POSTGRES_PASSWORD: "Postgres2021!"
+    ports:
+      - "15432:5432"
+    volumes:
+      - /home/renatogroffe/Desenvolvimento/Docker-Compose/PostgreSQL:/var/lib/postgresql/data 
+    networks:
+      - postgres-compose-network
+      
+  teste-pgadmin-compose:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "sunstone@yahoo.com.br"
+      PGADMIN_DEFAULT_PASSWORD: "PgAdmin2021!"
+    ports:
+      - "16543:80"
+    depends_on:
+      - teste-postgres-compose
+    networks:
+      - postgres-compose-network
+  
+  teste-rabbit-compose:
+    image: masstransit/rabbitmq
+    container_name: rabbitmq
+    ports:
+      - 5672:5672
+      - 15672:15672
+    networks:
+      - postgres-compose-network
+
+networks: 
+  postgres-compose-network:
+    driver: bridge
