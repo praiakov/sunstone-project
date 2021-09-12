@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SunstoneProject.Application\SunstoneProject.Application.csproj" />
+    <ProjectReference Include="..\SunstoneProject.Infrastructure\SunstoneProject.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

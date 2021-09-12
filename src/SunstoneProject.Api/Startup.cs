@@ -4,6 +4,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using SunstoneProject.Application.Services.Gemstones.Interfaces;
+using SunstoneProject.Application.UseCases.GemstoneUseCase;
+using SunstoneProject.Infrastructure.Gemstone;
 
 namespace SunstoneProject.Api
 {
@@ -18,12 +21,14 @@ namespace SunstoneProject.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "SunstoneProject.Api", Version = "v1" });
             });
+
+            services.AddScoped<IGemstoneUseCase, GemstoneUseCase>();
+            services.AddScoped<IGemstoneService, GemstoneService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

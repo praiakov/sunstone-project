@@ -25,7 +25,7 @@ namespace SunstoneProject.Api.Controllers.V1.Gemstone
         [ProducesResponseType(StatusCodes.Status202Accepted)]
         public async Task<IActionResult> Post(GemstoneInputModel gemstoneInputModel,[FromServices] IGemstoneUseCase gemstoneUseCase)
         {
-            _logger.LogInformation("CheckoutController.Post");
+            _logger.LogInformation("GemstoneController.Post");
 
             await gemstoneUseCase
                 .ExecuteAsync(Mapping(gemstoneInputModel));
