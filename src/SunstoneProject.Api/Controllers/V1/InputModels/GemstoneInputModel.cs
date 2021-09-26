@@ -25,6 +25,6 @@ namespace SunstoneProject.Api.Controllers.V1.InputModels
         /// <summary>
         /// Gemstone's color
         /// </summary>
-        public Colors Color { get; private set; }
+        public Colors Color { get; set; }
     }
 }
