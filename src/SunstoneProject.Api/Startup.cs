@@ -4,9 +4,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using SunstoneProject.Application.Configuration;
+using SunstoneProject.Application.Interfaces;
 using SunstoneProject.Application.Services.Gemstones.Interfaces;
 using SunstoneProject.Application.UseCases.GemstoneUseCase;
 using SunstoneProject.Infrastructure.Gemstone;
+using SunstoneProject.Infrastructure.RabbitMQ;
 
 namespace SunstoneProject.Api
 {
@@ -29,6 +32,9 @@ namespace SunstoneProject.Api
 
             services.AddScoped<IGemstoneUseCase, GemstoneUseCase>();
             services.AddScoped<IGemstoneService, GemstoneService>();
+            services.AddScoped<IEventBus, EventBus>();
+
+            services.Configure<AppConfiguration>(Configuration.GetSection("RabbitMQSettings"));
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
