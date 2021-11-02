@@ -14,10 +14,13 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{7C1222DD-28DF-4C78-8AC9-8B66A36EC620}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5CDC7385-8B02-4553-8111-676642131E54}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SunstoneProject.Tests", "tests\SunstoneProject.Tests\SunstoneProject.Tests.csproj", "{F623C536-80F8-445F-9D6D-D77772B8DF41}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SunstoneProject.Api", "src\SunstoneProject.Api\SunstoneProject.Api.csproj", "{CFF059C3-3932-4E81-A7CF-E4D82FDCA5F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SunstoneProject.Api", "src\SunstoneProject.Api\SunstoneProject.Api.csproj", "{CFF059C3-3932-4E81-A7CF-E4D82FDCA5F4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
