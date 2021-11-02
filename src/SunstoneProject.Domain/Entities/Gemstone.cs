@@ -11,6 +11,14 @@ namespace SunstoneProject.Domain.Entities
         public decimal Clarity { get; private set; }
         public Colors Color { get; private set; }
 
+        /// <summary>
+        /// <T>
+        /// </summary>
+        public Gemstone()
+        {
+
+        }
+
         public Gemstone(string name, decimal carat, decimal clarity, Colors color)
         {
             if (string.IsNullOrEmpty(name))

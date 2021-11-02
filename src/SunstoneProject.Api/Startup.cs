@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -9,6 +10,8 @@ using SunstoneProject.Application.Interfaces;
 using SunstoneProject.Application.Services.Gemstones.Interfaces;
 using SunstoneProject.Application.UseCases.GemstoneUseCase;
 using SunstoneProject.Infrastructure.Gemstone;
+using SunstoneProject.Infrastructure.Persistence.EntityFramework.Context;
+using SunstoneProject.Infrastructure.Persistence.EntityFramework.Repository;
 using SunstoneProject.Infrastructure.RabbitMQ;
 
 namespace SunstoneProject.Api
@@ -24,6 +27,12 @@ namespace SunstoneProject.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddDbContext<SunstoneContext>(options =>
+                options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddScoped<SunstoneContext>();
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -33,6 +42,7 @@ namespace SunstoneProject.Api
             services.AddScoped<IGemstoneUseCase, GemstoneUseCase>();
             services.AddScoped<IGemstoneService, GemstoneService>();
             services.AddScoped<IEventBus, EventBus>();
+            services.AddScoped<IGemstoneRepository, GemstoneRepository>();
 
             services.Configure<AppConfiguration>(Configuration.GetSection("RabbitMQSettings"));
         }
