@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using SunstoneProject.Api.Configs;
 using SunstoneProject.Application.Configuration;
 using SunstoneProject.Application.Interfaces;
 using SunstoneProject.Application.Services.Gemstones.Interfaces;
@@ -18,20 +19,13 @@ namespace SunstoneProject.Api
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
-        {
+        public Startup(IConfiguration configuration) =>
             Configuration = configuration;
-        }
 
         public IConfiguration Configuration { get; }
 
         public void ConfigureServices(IServiceCollection services)
         {
-
-            services.AddDbContext<SunstoneContext>(options =>
-                options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
-
-            services.AddScoped<SunstoneContext>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -39,12 +33,9 @@ namespace SunstoneProject.Api
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "SunstoneProject.Api", Version = "v1" });
             });
 
-            services.AddScoped<IGemstoneUseCase, GemstoneUseCase>();
-            services.AddScoped<IGemstoneService, GemstoneService>();
-            services.AddScoped<IEventBus, EventBus>();
-            services.AddScoped<IGemstoneRepository, GemstoneRepository>();
+            services.Configure<AppConfiguration>(Configuration);
+            services.AddApiContext(Configuration);
 
-            services.Configure<AppConfiguration>(Configuration.GetSection("RabbitMQSettings"));
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
