@@ -1,19 +1,11 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using SunstoneProject.Api.Configs;
 using SunstoneProject.Application.Configuration;
-using SunstoneProject.Application.Interfaces;
-using SunstoneProject.Application.Services.Gemstones.Interfaces;
-using SunstoneProject.Application.UseCases.GemstoneUseCase;
-using SunstoneProject.Infrastructure.Gemstone;
-using SunstoneProject.Infrastructure.Persistence.EntityFramework.Context;
-using SunstoneProject.Infrastructure.Persistence.EntityFramework.Repository;
-using SunstoneProject.Infrastructure.RabbitMQ;
 
 namespace SunstoneProject.Api
 {

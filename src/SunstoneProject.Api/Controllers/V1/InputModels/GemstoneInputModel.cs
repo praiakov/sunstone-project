@@ -5,7 +5,7 @@ namespace SunstoneProject.Api.Controllers.V1.InputModels
     /// <summary>
     /// Corresponds gemstone
     /// </summary>
-    public class GemstoneInputModel
+    public class Gemstone
     {
         /// <summary>
         /// Gemstone's name
