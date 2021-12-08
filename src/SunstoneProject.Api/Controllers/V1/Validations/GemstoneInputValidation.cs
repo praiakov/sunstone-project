@@ -1,24 +1,25 @@
 ﻿using FluentValidation;
+using SunstoneProject.Api.Resources.l18n;
 
 namespace SunstoneProject.Api.Controllers.V1.Validations
 {
     public class GemstoneInputValidation : AbstractValidator<InputModels.Gemstone>
     {
-        public GemstoneInputValidation()
+        public GemstoneInputValidation(IMessages messages)
         {
             RuleFor(x => x.Name)
                 .NotNull()
-                .WithMessage("Name cannot be null");
+                .WithMessage(messages.GetResources("Gestome.Name"));
             RuleFor(x => x.Carat)
                 .GreaterThan(0.00M)
-                .WithMessage("Carat cannot be null");
+                .WithMessage(messages.GetResources("Gestome.Carat"));
             RuleFor(x => x.Clarity)
                 .LessThan(100)
                 .NotNull()
-                .WithMessage("Clarity cannot be null");
+                .WithMessage(messages.GetResources("Gestome.Clarity"));
             RuleFor(x => x.Color)
                 .NotNull()
-                .WithMessage("Color cannot be null");
+                .WithMessage(messages.GetResources("Gestome.Color"));
         }
     }
 }

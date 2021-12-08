@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using SunstoneProject.Api.Resources.l18n;
 using SunstoneProject.Application.Configuration;
 using SunstoneProject.Application.Interfaces;
 using SunstoneProject.Application.Services.Gemstones.Interfaces;
@@ -28,6 +29,8 @@ namespace SunstoneProject.Api.Configs
             services.AddScoped<IGemstoneService, GemstoneService>();
             services.AddScoped<IEventBus, EventBus>();
             services.AddScoped<IGemstoneRepository, GemstoneRepository>();
+
+            services.AddSingleton<IMessages, Messages>();
 
         }
     }
