@@ -2,7 +2,6 @@
 using Microsoft.Extensions.Logging;
 using NSubstitute;
 using SunstoneProject.Api.Controllers.V1.Gemstone;
-using SunstoneProject.Api.Controllers.V1.InputModels;
 using SunstoneProject.Application.UseCases.GemstoneUseCase;
 using System.Net;
 using Xunit;
@@ -25,7 +24,7 @@ namespace SunstoneProject.Tests.Api
         [Fact]
         public async void ResponseAcceptedWhenCallPostMethod()
         {
-            var stone = new GemstoneInputModel
+            var stone = new SunstoneProject.Api.Controllers.V1.InputModels.Gemstone
             {
                 Name = "Esmerald",
                 Carat = 10,
