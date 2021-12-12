@@ -1,8 +1,14 @@
 ## Sunstone Project
-<img align="left" width="20%" src="https://github.com/praiakov/sunstone-project/blob/main/sunstone.png">
+<img align="left" width="10%" src="https://github.com/praiakov/sunstone-project/blob/main/sunstone.png">
 
 ASP.NET Core 5 application with Clean Architecture based on the [uncle bob's article](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
 
+This service manages the gemstone domain.
+
+---
+
+### Architecture diagram
+<img align="center" src="https://github.com/praiakov/sunstone-project/blob/main/sunstone-arch-c4.drawio.svg">
 
 ```Directory structure
 ├── src/                          
