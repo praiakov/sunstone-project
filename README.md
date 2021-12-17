@@ -19,4 +19,19 @@ This service manages the gemstone domain.
     
 ```
 
+### Endpoints
+- Create gemstone
+```
+POST /v1/gemstone/
+```
+#### Example
+```
+{
+  "name": "string",
+  "carat": 0,
+  "clarity": 0,
+  "color": 0
+}
+```
+
 ###### About more: [Sunstone Wiki](https://github.com/praiakov/sunstone-project/wiki)
