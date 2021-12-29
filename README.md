@@ -34,4 +34,8 @@ POST /v1/gemstone/
 }
 ```
 
+If you want to participate or have problems, open an issue here.
+
+If in any way the project was useful for you or your company, give it a star and follow the project!
+
 ###### About more: [Sunstone Wiki](https://github.com/praiakov/sunstone-project/wiki)
