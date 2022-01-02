@@ -34,7 +34,7 @@ POST /v1/gemstone/
 }
 ```
 
-If you want to participate or have problems, open an issue here.
+If you want to participate or have problems, [open an issue here](https://github.com/praiakov/sunstone-project/issues/new).
 
 If in any way the project was useful for you or your company, give it a star and follow the project!
 
