@@ -2,12 +2,14 @@ using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using SunstoneProject.Api.Configs;
+using SunstoneProject.Api.Filters;
 using SunstoneProject.Application.Configuration;
 using System.Collections.Generic;
 using System.Globalization;
@@ -26,10 +28,14 @@ namespace SunstoneProject.Api
             services.AddLocalization();
 
             services
-                .AddControllers()
-                .AddFluentValidation(x => x.RegisterValidatorsFromAssemblyContaining<Startup>());  ;
+                .AddControllers(opt => 
+                {
+                    opt.Filters.Add(typeof(ExceptionFilter));
+                    opt.Filters.Add(typeof(ValidateModelStateFilter));
+                })
+                .AddFluentValidation(x => x.RegisterValidatorsFromAssemblyContaining<Startup>()); ;
 
-            services.Configure<RequestLocalizationOptions>(opt => 
+            services.Configure<RequestLocalizationOptions>(opt =>
             {
                 var supportedCultures = new List<CultureInfo> {
                                                         new CultureInfo("en-US"),
@@ -42,7 +48,12 @@ namespace SunstoneProject.Api
                 opt.RequestCultureProviders.Add(new CustomRequestCulture());
 
             });
-            
+
+            services.Configure<ApiBehaviorOptions>(opt =>
+            {
+                 opt.SuppressModelStateInvalidFilter = true;
+            });
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "SunstoneProject.Api", Version = "v1" });
