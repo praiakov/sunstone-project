@@ -8,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
+using Newtonsoft.Json.Converters;
 using SunstoneProject.Api.Configs;
 using SunstoneProject.Api.Filters;
 using SunstoneProject.Application.Configuration;
@@ -33,6 +34,7 @@ namespace SunstoneProject.Api
                     opt.Filters.Add(typeof(ExceptionFilter));
                     opt.Filters.Add(typeof(ValidateModelStateFilter));
                 })
+                .AddNewtonsoftJson(x => x.SerializerSettings.Converters.Add(new StringEnumConverter()))
                 .AddFluentValidation(x => x.RegisterValidatorsFromAssemblyContaining<Startup>()); ;
 
             services.Configure<RequestLocalizationOptions>(opt =>
@@ -54,6 +56,7 @@ namespace SunstoneProject.Api
                  opt.SuppressModelStateInvalidFilter = true;
             });
 
+            services.AddSwaggerGenNewtonsoftSupport();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "SunstoneProject.Api", Version = "v1" });
