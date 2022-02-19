@@ -3,13 +3,16 @@ using Microsoft.Extensions.Hosting;
 
 namespace SunstoneProject.Api
 {
+    ///<inheritdoc/>
     public class Program
     {
+        ///<inheritdoc/>
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();
         }
 
+        ///<inheritdoc/>
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>

@@ -2,15 +2,18 @@
 
 namespace SunstoneProject.Api.Resources.l18n
 {
+    ///<inheritdoc/>
     public class Messages : IMessages
     {
         private IStringLocalizer<Messages> _localizer;
 
+        ///<inheritdoc/>
         public Messages(IStringLocalizer<Messages> localizer)
         {
             _localizer = localizer;
         }
 
+        ///<inheritdoc/>
         public string GetResources(string key)
         {
             var resource = _localizer[key];
