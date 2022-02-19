@@ -8,17 +8,20 @@ using System.Net;
 
 namespace SunstoneProject.Api.Filters
 {
+    ///<inheritdoc/>
     public class ExceptionFilter : IExceptionFilter
     {
         private readonly ILogger<ExceptionFilter> _logger;
         private readonly IMessages _messages;
 
+        ///<inheritdoc/>
         public ExceptionFilter(ILogger<ExceptionFilter> logger, IMessages messages)
         {
             _logger = logger;
             _messages = messages;
         }
 
+        ///<inheritdoc/>
         public void OnException(ExceptionContext context)
         {
             this._logger.LogError(context.Exception, $"ExceptionFilter.OnException");

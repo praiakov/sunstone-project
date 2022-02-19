@@ -3,8 +3,10 @@ using SunstoneProject.Api.Resources.l18n;
 
 namespace SunstoneProject.Api.Controllers.V1.Validations
 {
+    ///<inheritdoc/>
     public class GemstoneInputValidation : AbstractValidator<InputModels.Gemstone>
     {
+        ///<inheritdoc/>
         public GemstoneInputValidation(IMessages messages)
         {
             RuleFor(x => x.Name)

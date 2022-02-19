@@ -5,8 +5,10 @@ using System.Threading.Tasks;
 
 namespace SunstoneProject.Api.Configs
 {
+    ///<inheritdoc/>
     public class CustomRequestCulture : RequestCultureProvider
     {
+        ///<inheritdoc/>
         public override async Task<ProviderCultureResult> DetermineProviderCultureResult(HttpContext httpContext)
         {
             var browserLang = httpContext.Request.Headers["Accept-Language"]

@@ -9,17 +9,20 @@ using System.Net.Mime;
 
 namespace SunstoneProject.Api.Filters
 {
+    ///<inheritdoc/>
     public class ValidateModelStateFilter : ActionFilterAttribute
     {
         private readonly IMessages _messages;
         private readonly ILogger<ValidateModelStateFilter> _logger;
 
+        ///<inheritdoc/>
         public ValidateModelStateFilter(ILogger<ValidateModelStateFilter> logger, IMessages messages)
         {
             _logger = logger;
             _messages = messages;
         }
 
+        ///<inheritdoc/>
         public override void OnActionExecuting(ActionExecutingContext context)
         {
             if (context.ModelState.IsValid is false)

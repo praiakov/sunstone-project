@@ -13,8 +13,10 @@ using SunstoneProject.Infrastructure.RabbitMQ;
 
 namespace SunstoneProject.Api.Configs
 {
+    ///<inheritdoc/>
     public static class ApiServiceCollection
     {
+        ///<inheritdoc/>
         public static void AddApiContext(this IServiceCollection services, IConfiguration configuration)
         {
             var appConfiguration = new AppConfiguration();
