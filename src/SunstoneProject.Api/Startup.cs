@@ -35,6 +35,7 @@ namespace SunstoneProject.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddLocalization();
+            services.Configure<AppConfiguration>(Configuration);
 
             services
                 .AddControllers(opt => 
@@ -82,6 +83,7 @@ namespace SunstoneProject.Api
             services.AddSwaggerGenNewtonsoftSupport();
             services.AddSwaggerGen(c =>
             {
+                c.CustomSchemaIds(type => type.ToString());
                 foreach (var item in ApiVersionInformation.Versions)
                 {
                     c.SwaggerDoc(item.ToString(ApiVersionInformation.FormatPattern), new OpenApiInfo
