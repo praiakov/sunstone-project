@@ -4,6 +4,7 @@ using SunstoneProject.Application.Configuration;
 using SunstoneProject.Application.Interfaces;
 using SunstoneProject.Application.Services.Gemstones.Interfaces;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace SunstoneProject.Infrastructure.Gemstone
@@ -34,29 +35,41 @@ namespace SunstoneProject.Infrastructure.Gemstone
             {
                 var result = await _gemstoneRepository.Add(gemstone);
 
-                if(result == 1)
-                {
-                    _logger.LogInformation($"GemstoneService.SendGemstone({gemstone.Id}).PublishAsync");
+                _logger.LogInformation($"GemstoneService.SendGemstone({gemstone.Id}).PublishAsync");
 
-                    await _eventBus.PublishAsync(_appConfiguration.Queue, stone);
-                }
+                await _eventBus.PublishAsync(_appConfiguration.RabbitMQSettings.Queue, stone);
             }
             catch (Exception ex)
             {
                 _logger.LogError($"GemstoneService.SendGemstone({ex})");
+            }
+        }
+
+        public async Task<IEnumerable<Domain.Entities.Gemstone>> GetGemstones()
+        {
+            try
+            {
+                _logger.LogInformation($"GemstoneService.GetGemstones()");
+
+                return (IEnumerable<Domain.Entities.Gemstone>)await _gemstoneRepository.GetAll();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"GemstoneService.GetGemstones({ex})");
                 throw;
             }
         }
 
         #region Private methods
-        private Application.Services.Gemstones.Models.Gemstone MapGemstone(Domain.Entities.Gemstone gemstone)
+        private static Application.Services.Gemstones.Models.Gemstone MapGemstone(Domain.Entities.Gemstone gemstone)
         {
-            var stone = new Application.Services.Gemstones.Models.Gemstone();
-
-            stone.Id = gemstone.Id;
-            stone.Carat = gemstone.Carat;
-            stone.Clarity = gemstone.Clarity;
-            stone.Color = gemstone.Color;
+            var stone = new Application.Services.Gemstones.Models.Gemstone
+            {
+                Id = gemstone.Id,
+                Carat = gemstone.Carat,
+                Clarity = gemstone.Clarity,
+                Color = gemstone.Color
+            };
 
             return stone;
 
