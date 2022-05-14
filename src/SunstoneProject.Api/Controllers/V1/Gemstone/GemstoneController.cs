@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using SunstoneProject.Application.UseCases.GemstoneUseCase;
+using SunstoneProject.Application.UseCases.GemstoneUseCase.AddGemstoneUseCase;
+using SunstoneProject.Application.UseCases.GemstoneUseCase.GetAllGemstoneUseCase;
 using Swashbuckle.AspNetCore.Annotations;
 using System.Collections.Generic;
 using System.Net.Mime;
@@ -18,13 +19,16 @@ namespace SunstoneProject.Api.Controllers.V1.Gemstone
     public class GemstoneController : ControllerBase
     {
         private readonly ILogger<GemstoneController> _logger;
-        private readonly IGemstoneUseCase _gemstoneUseCase;
+        private readonly IAddGemstoneUseCase _addGemstoneUseCase;
+        private readonly IGetAllGemstoneUseCase _getAllGemstoneUseCase;
 
         ///<inheritdoc/>
-        public GemstoneController(ILogger<GemstoneController> logger, IGemstoneUseCase gemstoneUseCase)
+        public GemstoneController(ILogger<GemstoneController> logger, IAddGemstoneUseCase addGemstoneUseCase,
+            IGetAllGemstoneUseCase getAllGemstoneUseCase)
         {
             _logger = logger;
-            _gemstoneUseCase = gemstoneUseCase;
+            _addGemstoneUseCase = addGemstoneUseCase;
+            _getAllGemstoneUseCase = getAllGemstoneUseCase;
         }
 
         /// <summary>
@@ -39,7 +43,7 @@ namespace SunstoneProject.Api.Controllers.V1.Gemstone
         {
             _logger.LogInformation("GemstoneController.Post");
 
-            await _gemstoneUseCase
+            await _addGemstoneUseCase
                 .ExecuteAsync(Mapping(gemstoneInputModel));
 
             return Accepted();
@@ -54,7 +58,7 @@ namespace SunstoneProject.Api.Controllers.V1.Gemstone
         {
             _logger.LogInformation("GemstoneController.Get");
 
-            return await _gemstoneUseCase.GetAsync();
+            return await _getAllGemstoneUseCase.GetAsync();
         }
 
         #region Private methods
