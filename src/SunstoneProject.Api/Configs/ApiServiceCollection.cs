@@ -6,6 +6,8 @@ using SunstoneProject.Application.Configuration;
 using SunstoneProject.Application.Interfaces;
 using SunstoneProject.Application.Services.Gemstones.Interfaces;
 using SunstoneProject.Application.UseCases.GemstoneUseCase;
+using SunstoneProject.Application.UseCases.GemstoneUseCase.AddGemstoneUseCase;
+using SunstoneProject.Application.UseCases.GemstoneUseCase.GetAllGemstoneUseCase;
 using SunstoneProject.Infrastructure.Gemstone;
 using SunstoneProject.Infrastructure.Persistence.EntityFramework.Context;
 using SunstoneProject.Infrastructure.Persistence.EntityFramework.Repository;
@@ -27,10 +29,19 @@ namespace SunstoneProject.Api.Configs
 
             services.AddScoped<SunstoneContext>();
 
-            services.AddScoped<IGemstoneUseCase, GemstoneUseCase>();
+            #region UC
+            services.AddScoped<IAddGemstoneUseCase, AddGemstoneUseCase>();
+            services.AddScoped<IGetAllGemstoneUseCase, GetAllGemstoneUseCase>();
+            #endregion
+
+            #region Service
             services.AddScoped<IGemstoneService, GemstoneService>();
+            #endregion
+
+            #region Infra
             services.AddScoped<IEventBus, EventBus>();
             services.AddScoped<IGemstoneRepository, GemstoneRepository>();
+            #endregion
 
             services.AddSingleton<IMessages, Messages>();
 
