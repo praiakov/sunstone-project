@@ -5,7 +5,7 @@ namespace SunstoneProject.Api.Resources.l18n
     ///<inheritdoc/>
     public class Messages : IMessages
     {
-        private IStringLocalizer<Messages> _localizer;
+        private readonly IStringLocalizer<Messages> _localizer;
 
         ///<inheritdoc/>
         public Messages(IStringLocalizer<Messages> localizer)
