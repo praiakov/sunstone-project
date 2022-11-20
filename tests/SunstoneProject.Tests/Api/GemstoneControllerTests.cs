@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Logging;
 using NSubstitute;
 using SunstoneProject.Api.Controllers.V1.Gemstone;
-using SunstoneProject.Application.UseCases.GemstoneUseCase;
+using SunstoneProject.Application.Interfaces.Service;
 using System.Net;
 using Xunit;
 
@@ -12,13 +12,13 @@ namespace SunstoneProject.Tests.Api
     {
         private readonly ILogger<GemstoneController> _logger;
         private readonly GemstoneController _gemstoneController;
-        private readonly IGemstoneUseCase _gemstonetUseCase;
+        private readonly IGemstoneService _gemstonetUseCase;
 
         public GemstoneControllerTests()
         {
             _logger = Substitute.For<ILogger<GemstoneController>>();
             _gemstoneController = new GemstoneController(_logger);
-            _gemstonetUseCase = Substitute.For<IGemstoneUseCase>();
+            _gemstonetUseCase = Substitute.For<IGemstoneService>();
         }
 
         [Fact]
@@ -33,7 +33,7 @@ namespace SunstoneProject.Tests.Api
                 
             };
 
-            var response = await _gemstoneController.Post(stone, _gemstonetUseCase);
+            var response = await _gemstoneController.PostAsync(stone, _gemstonetUseCase);
 
             Assert.NotNull(response);
             Assert.IsType<AcceptedResult>(response);

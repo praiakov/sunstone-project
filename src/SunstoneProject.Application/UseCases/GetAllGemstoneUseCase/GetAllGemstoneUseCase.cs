@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
-using SunstoneProject.Application.Services.Gemstones.Interfaces;
+using SunstoneProject.Application.Interfaces.Service;
 using SunstoneProject.Domain.Entities;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -19,7 +19,7 @@ namespace SunstoneProject.Application.UseCases.GemstoneUseCase.GetAllGemstoneUse
 
         public async Task<IEnumerable<Gemstone>> GetAsync()
         {
-            _logger.LogInformation($"GetAllGemstoneUseCase.GetAsync()");
+            _logger.LogInformation(nameof(GetAllGemstoneUseCase) + "." + nameof(GetAsync));
 
             return await _gemstoneService.GetGemstones();
         }

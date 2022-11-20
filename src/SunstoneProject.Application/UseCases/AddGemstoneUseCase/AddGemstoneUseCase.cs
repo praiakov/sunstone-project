@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
-using SunstoneProject.Application.Services.Gemstones.Interfaces;
+using SunstoneProject.Application.Interfaces.Service;
 using SunstoneProject.Domain.Entities;
 using System.Threading.Tasks;
 
@@ -18,7 +18,7 @@ namespace SunstoneProject.Application.UseCases.GemstoneUseCase.AddGemstoneUseCas
 
         public async Task ExecuteAsync(Gemstone gemstone)
         {
-            _logger.LogInformation($"AddGemstoneUseCase.ExecuteAsync()");
+            _logger.LogInformation(nameof(AddGemstoneUseCase) + "/" + nameof(ExecuteAsync));
 
             await _gemstoneService.SendGemstone(gemstone);
         }

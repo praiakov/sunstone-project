@@ -2,7 +2,7 @@
 using SunstoneProject.Domain.Enums;
 using System;
 
-namespace SunstoneProject.Application.Services.Gemstones.Models
+namespace SunstoneProject.Infrastructure.Gemstone.Models
 {
     public class Gemstone
     {

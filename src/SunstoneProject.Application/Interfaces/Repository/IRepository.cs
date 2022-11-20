@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace SunstoneProject.Application.Interfaces
+namespace SunstoneProject.Application.Interfaces.Repository
 {
     public interface IRepository<TEntity> : IDisposable where TEntity : BaseEntity
     {
