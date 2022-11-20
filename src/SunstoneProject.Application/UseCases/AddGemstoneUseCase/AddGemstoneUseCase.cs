@@ -3,7 +3,7 @@ using SunstoneProject.Application.Interfaces.Service;
 using SunstoneProject.Domain.Entities;
 using System.Threading.Tasks;
 
-namespace SunstoneProject.Application.UseCases.GemstoneUseCase.AddGemstoneUseCase
+namespace SunstoneProject.Application.UseCases.AddGemstoneUseCase
 {
     public class AddGemstoneUseCase : IAddGemstoneUseCase
     {

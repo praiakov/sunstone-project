@@ -34,8 +34,6 @@ namespace SunstoneProject.Api.Shared
         /// <summary>
         /// Constructor
         /// </summary>
-        /// <param name="code"></param>
-        /// <param name="message"></param>
         /// <param name="ex"></param>
         public ErrorResponseModel(Exception ex)
         {

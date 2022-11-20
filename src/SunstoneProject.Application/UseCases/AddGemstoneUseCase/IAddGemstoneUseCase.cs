@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace SunstoneProject.Application.UseCases.GemstoneUseCase.AddGemstoneUseCase
+namespace SunstoneProject.Application.UseCases.AddGemstoneUseCase
 {
     public interface IAddGemstoneUseCase
     {
