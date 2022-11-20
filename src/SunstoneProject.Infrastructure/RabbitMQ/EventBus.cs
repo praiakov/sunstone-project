@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Options;
 using RabbitMQ.Client;
 using SunstoneProject.Application.Configuration;
-using SunstoneProject.Application.Interfaces;
+using SunstoneProject.Application.Interfaces.Broker;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -22,7 +22,7 @@ namespace SunstoneProject.Infrastructure.RabbitMQ
 
         public async Task PublishAsync<T>(string queue, T @event)
         {
-            _logger.LogInformation($"RabbitMQ.PublishAsync # queue {queue}");
+            _logger.LogInformation("RabbitMQ.PublishAsync # queue {queue}", queue);
 
             var factory = new ConnectionFactory() {
                 HostName = _appConfiguration.RabbitMQSettings.HostName,

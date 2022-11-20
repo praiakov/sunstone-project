@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace SunstoneProject.Application.Interfaces
+namespace SunstoneProject.Application.Interfaces.Broker
 {
     public interface IEventBus
     {

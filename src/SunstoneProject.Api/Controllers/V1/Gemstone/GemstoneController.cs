@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using SunstoneProject.Application.UseCases.GemstoneUseCase.AddGemstoneUseCase;
-using SunstoneProject.Application.UseCases.GemstoneUseCase.GetAllGemstoneUseCase;
+using SunstoneProject.Application.UseCases.AddGemstoneUseCase;
+using SunstoneProject.Application.UseCases.GetAllGemstoneUseCase;
 using Swashbuckle.AspNetCore.Annotations;
 using System.Collections.Generic;
 using System.Net.Mime;
