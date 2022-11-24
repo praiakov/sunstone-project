@@ -1,4 +1,4 @@
-﻿using SunstoneProject.Application.Interfaces.Repository;
+﻿using SunstoneProject.Domain.Interfaces;
 using SunstoneProject.Infrastructure.Persistence.EntityFramework.Context;
 
 namespace SunstoneProject.Infrastructure.Persistence.EntityFramework.Repository

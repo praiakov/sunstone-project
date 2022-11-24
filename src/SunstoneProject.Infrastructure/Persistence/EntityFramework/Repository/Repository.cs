@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SunstoneProject.Application.Interfaces.Repository;
+using SunstoneProject.Domain.Interfaces;
 using SunstoneProject.Domain.Common;
 using SunstoneProject.Infrastructure.Persistence.EntityFramework.Context;
 using System;
