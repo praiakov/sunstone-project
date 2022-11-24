@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace SunstoneProject.Application.Interfaces.Service
+namespace SunstoneProject.Domain.Interfaces
 {
     public interface IGemstoneService
     {

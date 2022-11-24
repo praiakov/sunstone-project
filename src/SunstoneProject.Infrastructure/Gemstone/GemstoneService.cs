@@ -1,9 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using SunstoneProject.Application.Configuration;
-using SunstoneProject.Application.Interfaces.Broker;
-using SunstoneProject.Application.Interfaces.Repository;
-using SunstoneProject.Application.Interfaces.Service;
+using SunstoneProject.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
