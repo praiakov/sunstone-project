@@ -3,7 +3,7 @@ using SunstoneProject.Domain.Interfaces;
 using SunstoneProject.Domain.Entities;
 using System.Threading.Tasks;
 
-namespace SunstoneProject.Application.UseCases.AddGemstoneUseCase
+namespace SunstoneProject.Application.UseCases
 {
     public class AddGemstoneUseCase : IAddGemstoneUseCase
     {
@@ -20,7 +20,7 @@ namespace SunstoneProject.Application.UseCases.AddGemstoneUseCase
         {
             _logger.LogInformation(nameof(AddGemstoneUseCase) + "/" + nameof(ExecuteAsync));
 
-            await _gemstoneService.SendGemstone(gemstone);
+            await _gemstoneService.AddGemstone(gemstone);
         }
     }
 }

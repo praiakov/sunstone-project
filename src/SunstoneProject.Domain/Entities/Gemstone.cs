@@ -21,7 +21,7 @@ namespace SunstoneProject.Domain.Entities
 
         public Gemstone(string name, decimal carat, decimal clarity, Colors color)
         {
-            if (string.IsNullOrEmpty(name))
+            if (string.IsNullOrWhiteSpace(name))
                 throw new DomainException("name cannot be empty or null.");
 
             if (carat <= 0)
