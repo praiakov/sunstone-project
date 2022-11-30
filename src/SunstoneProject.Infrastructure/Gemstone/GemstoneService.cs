@@ -24,7 +24,7 @@ namespace SunstoneProject.Infrastructure.Gemstone
             _appConfiguration = appConfiguration.Value;
         }
 
-        public async Task SendGemstone(Domain.Entities.Gemstone gemstone)
+        public async Task AddGemstone(Domain.Entities.Gemstone gemstone)
         {
             _logger.LogInformation("GemstoneService.SendGemstone({gemstone.Id})", gemstone.Id);
 

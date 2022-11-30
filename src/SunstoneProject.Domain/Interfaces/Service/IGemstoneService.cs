@@ -6,7 +6,7 @@ namespace SunstoneProject.Domain.Interfaces
 {
     public interface IGemstoneService
     {
-        Task SendGemstone(Gemstone gemstone);
+        Task AddGemstone(Gemstone gemstone);
         Task<IEnumerable<Gemstone>> GetGemstones();
     }
 }

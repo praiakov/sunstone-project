@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace SunstoneProject.Application.UseCases.GetAllGemstoneUseCase
+namespace SunstoneProject.Application.UseCases
 {
     public interface IGetAllGemstoneUseCase
     {

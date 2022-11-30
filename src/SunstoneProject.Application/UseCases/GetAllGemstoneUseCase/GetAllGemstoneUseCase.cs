@@ -4,7 +4,7 @@ using SunstoneProject.Domain.Entities;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace SunstoneProject.Application.UseCases.GetAllGemstoneUseCase
+namespace SunstoneProject.Application.UseCases
 {
     public class GetAllGemstoneUseCase : IGetAllGemstoneUseCase
     {
