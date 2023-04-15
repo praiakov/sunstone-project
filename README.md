@@ -7,35 +7,17 @@ This service manages the gemstone domain.
 ---
 
 ### Architecture diagram
-<img align="center" src="https://github.com/praiakov/sunstone-project/blob/main/sunstone-arch-c4.drawio.svg">
+<img align="center" src="https://github.com/praiakov/sunstone-project/blob/main/sunstone-arch.svg">
 
-```Directory structure
-├── src/                          
-|   ├── Api/
-|   ├── Application/
-|   ├── Domain/
-|   └── Infrastructure/       
-└── tests/
-    
-```
-
-### Endpoints
-- Create gemstone
-```
-POST /v1/gemstone/
-```
-#### Example
-```
-{
-  "name": "string",
-  "carat": 0,
-  "clarity": 0,
-  "color": 0
-}
-```
+## Technologies implemented
+* ASP.NET 6.0
+* Golang
+* PostgreSQL
+* RabbitMQ
+* EntityFrameworkCore
 
 If you want to participate or have problems, [open an issue here](https://github.com/praiakov/sunstone-project/issues/new).
 
 If in any way the project was useful for you or your company, give it a star and follow the project!
 
-###### About more: [Sunstone Wiki](https://github.com/praiakov/sunstone-project/wiki)
+###### About more (architecture, how to use): [Sunstone Wiki](https://github.com/praiakov/sunstone-project/wiki)
