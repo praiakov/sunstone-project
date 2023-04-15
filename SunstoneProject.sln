@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31424.327
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32602.215
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SunstoneProject.Domain", "src\SunstoneProject.Domain\SunstoneProject.Domain.csproj", "{CCD7F824-DD3F-4A8C-A45E-4649F1C27EC6}"
 EndProject
@@ -16,6 +16,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5CDC7385-8B02-4553-8111-676642131E54}"
 	ProjectSection(SolutionItems) = preProject
 		docker-compose.yml = docker-compose.yml
+		dbscripts\seed.sql = dbscripts\seed.sql
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SunstoneProject.Tests", "tests\SunstoneProject.Tests\SunstoneProject.Tests.csproj", "{F623C536-80F8-445F-9D6D-D77772B8DF41}"

@@ -1,40 +1,49 @@
-version: '2.2'
+version: '3'
+
+volumes:
+    pgdata: 
+
+networks:
+    sunstonet:
 
 services:
-  teste-postgres-compose:
-    image: postgres
-    container_name: postgres
+  db:
+    image: postgres:14.1-alpine
+    restart: always
+    container_name: pg-database
     environment:
       POSTGRES_PASSWORD: "Postgres2021!"
+      POSTGRES_USER: "postgres"
+      POSTGRES_DB: sunstonedb
     ports:
-      - "15432:5432"
+      - "35432:5432"
     volumes:
-      - /home/renatogroffe/Desenvolvimento/Docker-Compose/PostgreSQL:/var/lib/postgresql/data 
+      - ./pgdata:/var/lib/postgresql/data
+      - ./dbscripts/seed.sql:/docker-entrypoint-initdb.d/seed.sql
     networks:
-      - postgres-compose-network
+      - sunstonet
       
-  teste-pgadmin-compose:
-    image: dpage/pgadmin4
-    container_name: pgadmin
+  adminer:
+    image: adminer
+    restart: always
+    container_name: pg-adminer
     environment:
       PGADMIN_DEFAULT_EMAIL: "sunstone@yahoo.com.br"
-      PGADMIN_DEFAULT_PASSWORD: "PgAdmin2021!"
+      PGADMIN_DEFAULT_PASSWORD: "Postgres2021!"
     ports:
-      - "16543:80"
+      - "6543:8080"
     depends_on:
-      - teste-postgres-compose
+      - db
     networks:
-      - postgres-compose-network
+      - sunstonet
   
-  teste-rabbit-compose:
+  rabbitmq:
     image: masstransit/rabbitmq
     container_name: rabbitmq
     ports:
       - 5672:5672
       - 15672:15672
     networks:
-      - postgres-compose-network
+      - sunstonet
+        
 
-networks: 
-  postgres-compose-network:
-    driver: bridge
