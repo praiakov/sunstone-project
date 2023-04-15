@@ -24,10 +24,11 @@ namespace SunstoneProject.Infrastructure.RabbitMQ
         {
             _logger.LogInformation("RabbitMQ.PublishAsync # queue {queue}", queue);
 
-            var factory = new ConnectionFactory() {
+            var factory = new ConnectionFactory()
+            {
                 HostName = _appConfiguration.RabbitMQSettings.HostName,
-                UserName = _appConfiguration.RabbitMQSettings.UserName, 
-                Password = _appConfiguration.RabbitMQSettings.Password 
+                UserName = _appConfiguration.RabbitMQSettings.UserName,
+                Password = _appConfiguration.RabbitMQSettings.Password
             };
 
             using var connection = factory.CreateConnection();
