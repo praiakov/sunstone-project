@@ -3,7 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SunstoneProject.Api.Resources.l18n;
 using SunstoneProject.Application.Configuration;
-using SunstoneProject.Domain.Interfaces;
+using SunstoneProject.Application.Interfaces;
 using SunstoneProject.Application.UseCases;
 using SunstoneProject.Infrastructure.Gemstone;
 using SunstoneProject.Infrastructure.Persistence.EntityFramework.Context;

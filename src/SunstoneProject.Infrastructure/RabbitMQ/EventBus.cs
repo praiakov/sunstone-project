@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Options;
 using RabbitMQ.Client;
 using SunstoneProject.Application.Configuration;
-using SunstoneProject.Domain.Interfaces;
+using SunstoneProject.Application.Interfaces;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;

@@ -1,7 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
-using Moq;
+﻿using Moq;
 using SunstoneProject.Application.UseCases;
-using SunstoneProject.Domain.Interfaces;
+using SunstoneProject.Application.Interfaces;
 using SunstoneProject.Tests.Fixture;
 using Xunit;
 

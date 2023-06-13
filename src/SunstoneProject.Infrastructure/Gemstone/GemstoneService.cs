@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using SunstoneProject.Application.Configuration;
-using SunstoneProject.Domain.Interfaces;
+using SunstoneProject.Application.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
