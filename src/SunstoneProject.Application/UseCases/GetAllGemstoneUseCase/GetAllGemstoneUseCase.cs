@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
-using SunstoneProject.Domain.Interfaces;
+using SunstoneProject.Application.Interfaces;
 using SunstoneProject.Domain.Entities;
 using System.Collections.Generic;
 using System.Threading.Tasks;
